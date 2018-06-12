@@ -1,0 +1,18 @@
+scalar Date
+
+schema {
+    query: QueryType
+}
+
+type QueryType {
+    holidaysByCountry(countryCode: String!): [HolidayCode]!
+    holidayDate(countryCode: String!, holidayCode: String!, year: Int!): Date!
+}
+
+type HolidayCode {
+  code: String!
+  description: String!
+  holidayDate(countryCode: String!, year: Int!): Date!
+}
+
+

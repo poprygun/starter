@@ -1,0 +1,27 @@
+{
+  "id" : "717c0fdc-685a-4ae6-9ca8-7ebec1aa8725",
+  "name" : "holidayservice_v2_holidayservice2asmx",
+  "request" : {
+    "url" : "/holidayservice_v2/holidayservice2.asmx",
+    "method" : "POST",
+    "bodyPatterns" : [ {
+      "equalToXml" : "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap:Body><GetHolidayDate xmlns=\"http://www.holidaywebservice.com/HolidayService_v2/\"><countryCode>UnitedStates</countryCode><holidayCode>COLUMBUS-DAY</holidayCode><year>2018</year></GetHolidayDate></soap:Body></soap:Envelope>"
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><GetHolidayDateResponse xmlns=\"http://www.holidaywebservice.com/HolidayService_v2/\"><GetHolidayDateResult>2018-10-08T00:00:00</GetHolidayDateResult></GetHolidayDateResponse></soap:Body></soap:Envelope>",
+    "headers" : {
+      "Cache-Control" : "private, max-age=0",
+      "Content-Type" : "text/xml; charset=utf-8",
+      "Server" : "Microsoft-IIS/8.5",
+      "X-AspNet-Version" : "4.0.30319",
+      "X-Powered-By" : "ASP.NET",
+      "X-Powered-By-Plesk" : "PleskWin",
+      "Date" : "Tue, 12 Jun 2018 14:57:40 GMT"
+    }
+  },
+  "uuid" : "717c0fdc-685a-4ae6-9ca8-7ebec1aa8725",
+  "persistent" : true,
+  "insertionIndex" : 29
+}

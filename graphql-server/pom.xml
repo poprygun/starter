@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.microsamples.ux.backend</groupId>
+    <artifactId>graphql-server</artifactId>
+    <packaging>jar</packaging>
+
+    <name>graphql-server</name>
+    <description>Graphql Backend</description>
+
+    <parent>
+        <groupId>io.microsamples.ux</groupId>
+        <artifactId>starter</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <properties>
+        <graphql.version>4.2.0</graphql.version>
+        <rest-assured.version>3.1.0</rest-assured.version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-spring-boot-starter</artifactId>
+            <version>${graphql.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphiql-spring-boot-starter</artifactId>
+            <version>${graphql.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.microsamples.integrations.soap</groupId>
+            <artifactId>holidays</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.microsamples.integrations.soap</groupId>
+            <artifactId>holidays</artifactId>
+            <type>test-jar</type>
+            <scope>test</scope>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-java-tools</artifactId>
+            <version>5.1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.zhokhov.graphql</groupId>
+            <artifactId>graphql-datetime-spring-boot-starter</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>spring-mock-mvc</artifactId>
+            <version>${rest-assured.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
