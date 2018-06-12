@@ -7,26 +7,23 @@ Query Tests extend `WireMockServiceTests` class that loads stubs from `test\reso
 - Easiest way to test is to use a [GraphiQl](http://localhost:8080/graphiql)
 
 ```
+query getCountryCodes($countryCode: String!, $year: Int!)
 {
-  holidaysByCountry(countryCode: "UNITED_STATES"){
-    code
-    description
-  }
-}
-
-
-query getCountryCodes($countryCode: String!)
-{
-  holidayDate(countryCode: "UNITED_STATES", holidayCode: "THANKSGIVING", year: 2018)
+  holidayDate(countryCode: $countryCode, holidayCode: "THANKSGIVING", year: $year)
 
   holidaysByCountry(countryCode: $countryCode){
     code
-    description    
+    description
+    holidayDate(countryCode: $countryCode, year: $year)
   }
 }
-
+```
+Query Parameters
+______
+```
 {
-  "countryCode":"UNITED_STATES"
+  "countryCode": "UNITED_STATES",
+  "year": 2045
 }
 ```
 
