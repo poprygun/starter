@@ -1,6 +1,9 @@
 package io.microsamples.integrations.soap;
 
-import com.holidaywebservice.holidayservice_v2.*;
+import com.holidaywebservice.holidayservice_v2.ArrayOfHolidayCode;
+import com.holidaywebservice.holidayservice_v2.Country;
+import com.holidaywebservice.holidayservice_v2.HolidayService2;
+import com.holidaywebservice.holidayservice_v2.HolidayService2Soap;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.xml.datatype.XMLGregorianCalendar;
+import java.util.Arrays;
 
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -59,12 +63,12 @@ public class CxfStarterApplicationTests extends WireMockServiceTests{
                 , "CHRISTMAS-OBSERVED"
                 , "NEW-YEARS-EVE"};
 
-        for (String code :
-                holidayCodes) {
-            XMLGregorianCalendar holidayDate = holidayService2Soap.getHolidayDate(Country.UNITED_STATES, code, 2018);
-            assertThat(holidayDate, is(notNullValue()));
-        }
+        Arrays.asList(holidayCodes).stream().forEach(code -> validateDate(code));
+    }
 
+    private void validateDate(String code) {
+        XMLGregorianCalendar holidayDate = holidayService2Soap.getHolidayDate(Country.UNITED_STATES, code, 2018);
+        assertThat(holidayDate, is(notNullValue()));
     }
 
     @Test
