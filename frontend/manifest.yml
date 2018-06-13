@@ -1,0 +1,7 @@
+---
+applications:
+- name: graphql-frontend
+  memory: 1024M
+  buildpack: https://github.com/cloudfoundry/nodejs-buildpack
+  env:
+    REACT_APP_LINK_URI: http://graphql-server.cfapps.io/graphiql

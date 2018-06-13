@@ -1,0 +1,7 @@
+---
+applications:
+- name: graphql-server
+  memory: 1024M
+  path: target/graphql-server-1.0-SNAPSHOT.jar
+  buildpack: https://github.com/cloudfoundry/java-buildpack
+  host: graphql-server

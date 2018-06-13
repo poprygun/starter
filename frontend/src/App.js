@@ -7,8 +7,11 @@ import { ApolloProvider } from 'react-apollo';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import HomeView from './views/HomeView'
 
+var linkUri = process.env.REACT_APP_LINK_URI || 'http://localhost:8080/graphql'
+console.log('Using graphQL server:', linkUri)
+
 const client =  new ApolloClient({
-  link: new HttpLink({ uri: 'http://localhost:8080/graphql' }),
+  link: new HttpLink({ uri: linkUri}),
   cache: new InMemoryCache().restore(window.__APOLLO_STATE__),
 });
 
