@@ -28,6 +28,8 @@ Soap Integration is using [Apache CXF](http://cxf.apache.org/)
 
 ### graphql-server
 
+Enable soap message logging with setting `integrations.holidays.enableMessageLogging=true`
+
 
 
 
