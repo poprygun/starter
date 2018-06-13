@@ -24,16 +24,18 @@ public class HolidaysClientAutoConfiguration {
         jaxWsProxyFactoryBean.setServiceClass(HolidayService2Soap.class);
         jaxWsProxyFactoryBean.setAddress(holidaysClientProperties.getServiceAddress());
 
-        jaxWsProxyFactoryBean.getOutInterceptors()
-                .add(new LoggingOutInterceptor());
+        if (holidaysClientProperties.isEnableMessageLogging()) {
+            jaxWsProxyFactoryBean.getOutInterceptors()
+                    .add(new LoggingOutInterceptor());
 
-        jaxWsProxyFactoryBean.getOutInterceptors()
-                .add(new SoapActionInterceptor());
+            jaxWsProxyFactoryBean.getOutInterceptors()
+                    .add(new SoapActionInterceptor());
 
-        jaxWsProxyFactoryBean.getInInterceptors()
-                .add(new LoggingInInterceptor());
+            jaxWsProxyFactoryBean.getInInterceptors()
+                    .add(new LoggingInInterceptor());
 
-        jaxWsProxyFactoryBean.setFeatures(Arrays.asList(new PrettyLoggingFeature()));
+            jaxWsProxyFactoryBean.setFeatures(Arrays.asList(new PrettyLoggingFeature()));
+        }
 
         return (HolidayService2Soap) jaxWsProxyFactoryBean.create();
     }

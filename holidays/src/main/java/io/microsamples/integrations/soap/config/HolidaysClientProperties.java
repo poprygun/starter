@@ -9,4 +9,5 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Setter
 public class HolidaysClientProperties {
     private String serviceAddress;
+    private boolean enableMessageLogging;
 }
